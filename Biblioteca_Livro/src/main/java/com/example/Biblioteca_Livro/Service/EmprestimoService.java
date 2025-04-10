@@ -20,6 +20,8 @@ public class EmprestimoService {
         emprestimoDTO.setIdEmprestimo(emprestimo.getIdEmprestimo());
         emprestimoDTO.setData_Inicial(emprestimo.getData_inicial());
         emprestimoDTO.setData_Final(emprestimo.getData_final());
+        emprestimoDTO.setCliente(emprestimo.getCliente());
+        emprestimoDTO.setLivros(emprestimo.getLivroList());
         return emprestimoDTO;
     }
 
@@ -28,6 +30,8 @@ public class EmprestimoService {
         Emprestimo emprestimo = new Emprestimo();
         emprestimo.setData_inicial(emprestimoDTO.getData_Inicial());
         emprestimo.setData_final(emprestimoDTO.getData_Final());
+        emprestimo.setCliente(emprestimoDTO.getCliente());
+        emprestimo.setLivroList(emprestimoDTO.getLivros());
         return emprestimo;
     }
 
