@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
     @Data
@@ -14,8 +15,8 @@ import java.util.List;
     @NoArgsConstructor
     public class EmprestimoDTO {
         private Long idEmprestimo;
-        private LocalDate data_Inicial;
-        private LocalDate data_Final;
+        private Date data_Inicial;
+        private Date data_Final;
         private Cliente cliente;
         private List<Livro> livros;
     }
