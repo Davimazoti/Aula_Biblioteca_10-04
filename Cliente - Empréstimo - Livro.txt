@@ -1,0 +1,17 @@
+Cliente - Empréstimo - Livro
+
+Cliente => id, nome, sobrenome, cpf(unico)
+Empréstimo => id, data inicial, data final
+Livro => id, nome, autor, ISBN(unico), gênero
+
+Cliente 1 --- 1 Empréstimo 1 --- N Livro
+
+Atividade:
+
+Criar rotas:
+
+Todas entidades -> Adicionar, Remover, Editar, Buscar Todos
+
+Telas:
+Todas entidade -> Cadastro, Editar, Listar(remover)
+BONUS: Filtro por gênero do Livro
