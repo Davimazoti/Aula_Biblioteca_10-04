@@ -6,27 +6,35 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Emprestimo {
+public class Emprestimo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmprestimo;
-
     private Date data_inicial;
     private Date data_final;
 
-    @OneToOne()
+
+    @ManyToOne
     @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
+    @JsonManagedReference
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "emprestimo", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<Livro> livroList;
+
+    @ManyToMany
+    @JoinTable(
+            name = "emprestimoLivro",
+            joinColumns = @JoinColumn(name = "emprestimoId"),
+            inverseJoinColumns = @JoinColumn(name = "livroId")
+    )
+    private Set<Livro> livroList;
 }

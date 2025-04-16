@@ -7,11 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+import java.util.Set;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente {
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +25,14 @@ public class Cliente {
     @Column(unique = true)
     private String cpf;
 
-    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Emprestimo emprestimo;
+    @OneToMany(mappedBy = "cliente")
+    @JsonBackReference
+    private Set<Emprestimo> emprestimo;
 
+    public Cliente (Long idCliente, String nomeCliente, String sobrenome, String cpf){
+        this.idCliente =  idCliente;
+        this.nomeCliente = nomeCliente;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+    }
 }

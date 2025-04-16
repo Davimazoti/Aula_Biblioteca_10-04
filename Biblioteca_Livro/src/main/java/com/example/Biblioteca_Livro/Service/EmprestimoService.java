@@ -2,12 +2,14 @@ package com.example.Biblioteca_Livro.Service;
 
 import com.example.Biblioteca_Livro.DTO.EmprestimoDTO;
 import com.example.Biblioteca_Livro.Entity.Emprestimo;
+import com.example.Biblioteca_Livro.Entity.Livro;
 import com.example.Biblioteca_Livro.Repository.EmprestimoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class EmprestimoService {
