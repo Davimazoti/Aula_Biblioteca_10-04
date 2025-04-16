@@ -16,8 +16,8 @@ import java.util.Set;
     @NoArgsConstructor
     public class EmprestimoDTO {
         private Long idEmprestimo;
-        private Date data_Inicial;
-        private Date data_Final;
+        private LocalDate dataInicial;
+        private LocalDate dataFinal;
         private Cliente cliente;
         private Set<Livro> livros;
     }

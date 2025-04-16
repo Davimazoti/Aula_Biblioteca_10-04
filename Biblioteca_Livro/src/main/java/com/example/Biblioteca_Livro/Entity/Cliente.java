@@ -26,7 +26,7 @@ public class Cliente implements Serializable {
     private String cpf;
 
     @OneToMany(mappedBy = "cliente")
-    @JsonBackReference
+    @JsonIgnore
     private Set<Emprestimo> emprestimo;
 
     public Cliente (Long idCliente, String nomeCliente, String sobrenome, String cpf){

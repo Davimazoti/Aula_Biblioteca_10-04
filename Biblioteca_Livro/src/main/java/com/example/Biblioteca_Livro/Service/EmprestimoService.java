@@ -20,8 +20,8 @@ public class EmprestimoService {
     public EmprestimoDTO toDTO(Emprestimo emprestimo) {
         EmprestimoDTO emprestimoDTO = new EmprestimoDTO();
         emprestimoDTO.setIdEmprestimo(emprestimo.getIdEmprestimo());
-        emprestimoDTO.setData_Inicial(emprestimo.getData_inicial());
-        emprestimoDTO.setData_Final(emprestimo.getData_final());
+        emprestimoDTO.setDataInicial(emprestimo.getDatainicial());
+        emprestimoDTO.setDataFinal(emprestimo.getDatafinal());
         emprestimoDTO.setCliente(emprestimo.getCliente());
         emprestimoDTO.setLivros(emprestimo.getLivroList());
         return emprestimoDTO;
@@ -30,8 +30,8 @@ public class EmprestimoService {
     // Converte EmprestimoDTO em Emprestimo
     public Emprestimo fromDTO(EmprestimoDTO emprestimoDTO) {
         Emprestimo emprestimo = new Emprestimo();
-        emprestimo.setData_inicial(emprestimoDTO.getData_Inicial());
-        emprestimo.setData_final(emprestimoDTO.getData_Final());
+        emprestimo.setDatainicial(emprestimoDTO.getDataInicial());
+        emprestimo.setDatafinal(emprestimoDTO.getDataFinal());
         emprestimo.setCliente(emprestimoDTO.getCliente());
         emprestimo.setLivroList(emprestimoDTO.getLivros());
         return emprestimo;
@@ -64,8 +64,8 @@ public class EmprestimoService {
         if (optionalEmprestimo.isPresent()) {
             Emprestimo emprestimo = optionalEmprestimo.get();
 
-            emprestimo.setData_inicial(emprestimoDTO.getData_Inicial());
-            emprestimo.setData_final(emprestimoDTO.getData_Final());
+            emprestimo.setDatainicial(emprestimoDTO.getDataInicial());
+            emprestimo.setDatafinal(emprestimoDTO.getDataFinal());
 
             Emprestimo emprestimoAtt = emprestimoRepository.save(emprestimo);
 

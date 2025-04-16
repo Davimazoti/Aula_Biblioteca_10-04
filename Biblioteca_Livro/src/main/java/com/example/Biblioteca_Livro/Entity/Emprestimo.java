@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -20,21 +21,19 @@ public class Emprestimo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmprestimo;
-    private Date data_inicial;
-    private Date data_final;
-
+    private LocalDate datainicial;
+    private LocalDate datafinal;
 
     @ManyToOne
     @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
-    @JsonManagedReference
     private Cliente cliente;
 
 
     @ManyToMany
     @JoinTable(
             name = "emprestimoLivro",
-            joinColumns = @JoinColumn(name = "emprestimoId"),
-            inverseJoinColumns = @JoinColumn(name = "livroId")
+            joinColumns = @JoinColumn(name = "idEmprestimo"),
+            inverseJoinColumns = @JoinColumn(name = "idLivro")
     )
     private Set<Livro> livroList;
 }
