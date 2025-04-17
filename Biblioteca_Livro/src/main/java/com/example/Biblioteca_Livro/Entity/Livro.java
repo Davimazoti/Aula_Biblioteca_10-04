@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,7 +30,7 @@ public class Livro implements Serializable {
 
     @ManyToMany (mappedBy = "livroList")
     @JsonIgnore
-    private Set<Emprestimo> emprestimo;
+    private List<Emprestimo> emprestimo;
 
     public Livro(Long idLivro, String nomeLivro, String autor, String ISBN, String genero){
         this.idLivro = idLivro;

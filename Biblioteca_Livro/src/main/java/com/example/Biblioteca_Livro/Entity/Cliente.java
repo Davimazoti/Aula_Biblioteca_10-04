@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,7 +28,7 @@ public class Cliente implements Serializable {
 
     @OneToMany(mappedBy = "cliente")
     @JsonIgnore
-    private Set<Emprestimo> emprestimo;
+    private List<Emprestimo> emprestimo;
 
     public Cliente (Long idCliente, String nomeCliente, String sobrenome, String cpf){
         this.idCliente =  idCliente;

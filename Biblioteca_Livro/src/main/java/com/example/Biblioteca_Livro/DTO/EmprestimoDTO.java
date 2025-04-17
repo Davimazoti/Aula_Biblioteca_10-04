@@ -19,5 +19,5 @@ import java.util.Set;
         private LocalDate dataInicial;
         private LocalDate dataFinal;
         private Cliente cliente;
-        private Set<Livro> livros;
+        private List<Livro> livros;
     }

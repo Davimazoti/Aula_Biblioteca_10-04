@@ -32,8 +32,8 @@ public class Emprestimo implements Serializable {
     @ManyToMany
     @JoinTable(
             name = "emprestimoLivro",
-            joinColumns = @JoinColumn(name = "idEmprestimo"),
-            inverseJoinColumns = @JoinColumn(name = "idLivro")
+            joinColumns = @JoinColumn(name = "idEmprestimo", referencedColumnName = "idEmprestimo"),
+            inverseJoinColumns = @JoinColumn(name = "idLivro", referencedColumnName = "idLivro")
     )
-    private Set<Livro> livroList;
+    private List<Livro> livroList;
 }
